@@ -1,4 +1,7 @@
 package pl.javastart.config;
 
-public class DatabaseDatasource {
+import java.util.List;
+
+public interface DatabaseDatasource {
+    List<String> getDatabase();
 }
