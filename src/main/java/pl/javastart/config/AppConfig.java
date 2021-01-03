@@ -2,6 +2,7 @@ package pl.javastart.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import pl.javastart.config.profiles.DevProfile;
 import pl.javastart.config.profiles.ProdProfile;
 
@@ -16,6 +17,12 @@ import java.util.List;
 
 @Configuration
 public class AppConfig {
+
+    @Bean
+    @Profile("default")
+    public DatabaseDatasource getDefaultDatasource(){
+        return (() -> Arrays.asList("KasiaDefault","BartekDefault"));
+    }
 
     @Bean
     @DevProfile
